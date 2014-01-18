@@ -1,6 +1,5 @@
 #include "WPILib.h"
-#include "Commands/Command.h"
-#include "Commands/ExampleCommand.h"
+#include "Commands/ActivateSolenoidCommand.h"
 
 class Robot2014 : public IterativeRobot
 {
@@ -33,6 +32,12 @@ class Robot2014 : public IterativeRobot
 	virtual void TestPeriodic()
 	{
 		LiveWindow::GetInstance()->Run();
+	}
+	
+	virtual void TestInit()
+	{
+		Command* command = new ActivateSolenoid(1);
+		command->Start();
 	}
 };
 

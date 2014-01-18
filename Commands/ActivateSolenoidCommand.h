@@ -3,9 +3,11 @@
 
 #include<WPILib.h>
 
-class ExampleCommand: public Command {
+class ActivateSolenoid: public Command {
+private:
+	Solenoid solenoid; 
 public:
-	ExampleCommand();
+	ActivateSolenoid(uint32_t channel);
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();

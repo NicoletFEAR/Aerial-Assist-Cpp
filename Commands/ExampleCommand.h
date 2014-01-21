@@ -1,13 +1,16 @@
 #ifndef EXAMPLE_COMMAND_H
 #define EXAMPLE_COMMAND_H
 
-#include<WPILib.h>
+#include "../CommandBase.h"
 
-class ActivateSolenoid: public Command {
-private:
-	Solenoid solenoid; 
+/**
+ *
+ *
+ * @author ExampleAuthor
+ */
+class ExampleCommand: public CommandBase {
 public:
-	ActivateSolenoid(uint32_t channel);
+	ExampleCommand();
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();

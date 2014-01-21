@@ -1,43 +1,41 @@
 #include "WPILib.h"
-#include "Commands/ActivateSolenoidCommand.h"
+#include "Commands/Command.h"
+#include "Commands/ExampleCommand.h"
+#include "CommandBase.h"
 
-class Robot2014 : public IterativeRobot
-{
-	private:
+class Robot2014 : public IterativeRobot {
+private:
+	Command *autonomousCommand;
+	LiveWindow *lw;
 	
-	virtual void RobotInit()
-	{
+	virtual void RobotInit() {
+		CommandBase::init();
+		autonomousCommand = new ExampleCommand();
+		lw = LiveWindow::GetInstance();
 	}
 	
-	virtual void AutonomousInit()
-	{
-		
+	virtual void AutonomousInit() {
+		autonomousCommand->Start();
 	}
 	
-	virtual void AutonomousPeriodic()
-	{
+	virtual void AutonomousPeriodic() {
 		Scheduler::GetInstance()->Run();
 	}
 	
-	virtual void TeleopInit()
-	{
-		
+	virtual void TeleopInit() {
+		// This makes sure that the autonomous stops running when
+		// teleop starts running. If you want the autonomous to 
+		// continue until interrupted by another command, remove
+		// this line or comment it out.
+		autonomousCommand->Cancel();
 	}
 	
-	virtual void TeleopPeriodic()
-	{
+	virtual void TeleopPeriodic() {
 		Scheduler::GetInstance()->Run();
 	}
 	
-	virtual void TestPeriodic()
-	{
-		LiveWindow::GetInstance()->Run();
-	}
-	
-	virtual void TestInit()
-	{
-		Command* command = new ActivateSolenoid(1);
-		command->Start();
+	virtual void TestPeriodic() {
+		lw->Run();
 	}
 };
 

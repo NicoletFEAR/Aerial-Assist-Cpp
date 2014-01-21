@@ -162,7 +162,15 @@ CommandBasedRobotTemplate_partialImage/$(MODE_DIR)/% : LIBPATH =
 CommandBasedRobotTemplate_partialImage/$(MODE_DIR)/% : LIBS = 
 CommandBasedRobotTemplate_partialImage/$(MODE_DIR)/% : OBJ_DIR := CommandBasedRobotTemplate_partialImage/$(MODE_DIR)
 
-CommandBasedRobotTemplate_partialImage/$(MODE_DIR)/Objects/Robot2014/Commands/ExampleCommand.o : $(PRJ_ROOT_DIR)/Commands/ExampleCommand.cpp $(FORCE_FILE_BUILD)
+CommandBasedRobotTemplate_partialImage/$(MODE_DIR)/Objects/Robot2014/Commands/ActivateSolenoidCommand.o : $(PRJ_ROOT_DIR)/Commands/ActivateSolenoidCommand.cpp $(FORCE_FILE_BUILD)
+	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
+
+
+CommandBasedRobotTemplate_partialImage/$(MODE_DIR)/Objects/Robot2014/ExampleFiles/ExampleCommand.o : $(PRJ_ROOT_DIR)/ExampleFiles/ExampleCommand.cpp $(FORCE_FILE_BUILD)
+	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
+
+
+CommandBasedRobotTemplate_partialImage/$(MODE_DIR)/Objects/Robot2014/ExampleFiles/ExampleSubsystem.o : $(PRJ_ROOT_DIR)/ExampleFiles/ExampleSubsystem.cpp $(FORCE_FILE_BUILD)
 	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
 
 
@@ -178,7 +186,9 @@ CommandBasedRobotTemplate_partialImage/$(MODE_DIR)/Objects/Robot2014/Subsystems/
 	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
 
 
-OBJECTS_CommandBasedRobotTemplate_partialImage = CommandBasedRobotTemplate_partialImage/$(MODE_DIR)/Objects/Robot2014/Commands/ExampleCommand.o \
+OBJECTS_CommandBasedRobotTemplate_partialImage = CommandBasedRobotTemplate_partialImage/$(MODE_DIR)/Objects/Robot2014/Commands/ActivateSolenoidCommand.o \
+	 CommandBasedRobotTemplate_partialImage/$(MODE_DIR)/Objects/Robot2014/ExampleFiles/ExampleCommand.o \
+	 CommandBasedRobotTemplate_partialImage/$(MODE_DIR)/Objects/Robot2014/ExampleFiles/ExampleSubsystem.o \
 	 CommandBasedRobotTemplate_partialImage/$(MODE_DIR)/Objects/Robot2014/OI.o \
 	 CommandBasedRobotTemplate_partialImage/$(MODE_DIR)/Objects/Robot2014/Robot2014.o \
 	 CommandBasedRobotTemplate_partialImage/$(MODE_DIR)/Objects/Robot2014/Subsystems/DriveTrain.o
@@ -195,8 +205,8 @@ CommandBasedRobotTemplate_partialImage/$(MODE_DIR)/CommandBasedRobotTemplate_par
 
 force : 
 
-DEP_FILES := CommandBasedRobotTemplate_partialImage/$(MODE_DIR)/Objects/Robot2014/Commands/ExampleCommand.d CommandBasedRobotTemplate_partialImage/$(MODE_DIR)/Objects/Robot2014/OI.d CommandBasedRobotTemplate_partialImage/$(MODE_DIR)/Objects/Robot2014/Robot2014.d \
-	 CommandBasedRobotTemplate_partialImage/$(MODE_DIR)/Objects/Robot2014/Subsystems/DriveTrain.d
+DEP_FILES := CommandBasedRobotTemplate_partialImage/$(MODE_DIR)/Objects/Robot2014/Commands/ActivateSolenoidCommand.d CommandBasedRobotTemplate_partialImage/$(MODE_DIR)/Objects/Robot2014/ExampleFiles/ExampleCommand.d CommandBasedRobotTemplate_partialImage/$(MODE_DIR)/Objects/Robot2014/ExampleFiles/ExampleSubsystem.d \
+	 CommandBasedRobotTemplate_partialImage/$(MODE_DIR)/Objects/Robot2014/OI.d CommandBasedRobotTemplate_partialImage/$(MODE_DIR)/Objects/Robot2014/Robot2014.d CommandBasedRobotTemplate_partialImage/$(MODE_DIR)/Objects/Robot2014/Subsystems/DriveTrain.d
 -include $(DEP_FILES)
 
 

@@ -1,6 +1,5 @@
-#ifndef EXAMPLE_SUBSYSTEM_H
-#define EXAMPLE_SUBSYSTEM_H
-#include "Commands/Subsystem.h"
+#ifndef DRIVETRAIN_H
+#define DRIVETRAIN_H
 #include "WPILib.h"
 
 namespace Subsystems

@@ -11,6 +11,7 @@ class TeleOpDrive: public CommandBase
 {
 private:
 	GenericHID* controller;
+	float GetConvertedAxis(int axis);
 public:
 	TeleOpDrive();
 	virtual void Initialize();

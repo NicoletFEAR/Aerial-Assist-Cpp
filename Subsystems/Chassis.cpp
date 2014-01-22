@@ -1,6 +1,5 @@
 #include "Chassis.h"
 #include "../Commands/TeleOpDrive.h"
-
 #include "../Robotmap.h"
 
 Chassis::Chassis() : Subsystem("Chassis"),
@@ -8,12 +7,18 @@ Chassis::Chassis() : Subsystem("Chassis"),
 	rightFrontMotor(new Jaguar(kRightFrontMotor)),
 	leftRearMotor(new Jaguar(kLeftRearMotor)),
 	rightRearMotor(new Victor(kRightRearMotor)),
-	robotDrive(leftFrontMotor, leftRearMotor, rightFrontMotor, rightRearMotor)
+	driveSystem(leftFrontMotor, leftRearMotor, rightFrontMotor, rightRearMotor)
 {
-	
+	driveSystem.SetInvertedMotor(RobotDrive::kFrontRightMotor, true);
+	driveSystem.SetInvertedMotor(RobotDrive::kRearRightMotor, true);
 }
     
 void Chassis::InitDefaultCommand()
 {
 	SetDefaultCommand(new TeleOpDrive());
+}
+
+void Chassis::Drive(float x, float y, float turn, float gyroAngle)
+{
+	driveSystem.MecanumDrive_Cartesian(x, y, turn, gyroAngle);
 }

@@ -18,5 +18,6 @@ private:
 public:
 	Chassis();
 	void InitDefaultCommand();
+	void Drive(float x, float y, float turn, float gyroAngle = 0.0f);
 };
 

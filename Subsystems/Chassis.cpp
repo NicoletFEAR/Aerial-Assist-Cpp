@@ -7,7 +7,7 @@ Chassis::Chassis() : Subsystem("Chassis"),
 	leftFrontMotor(new Jaguar(kLeftFrontMotor)),
 	rightFrontMotor(new Jaguar(kRightFrontMotor)),
 	leftRearMotor(new Jaguar(kLeftRearMotor)),
-	rightRearMotor(new Jaguar(kRightRearMotor)),
+	rightRearMotor(new Victor(kRightRearMotor)),
 	robotDrive(leftFrontMotor, leftRearMotor, rightFrontMotor, rightRearMotor)
 {
 	

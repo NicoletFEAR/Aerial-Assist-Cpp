@@ -20,3 +20,6 @@ const int kBackButton = 7;
 const int kStartButton = 8;
 const int kLeftControlStickButton = 9;
 const int kRightControlStickButton = 10;
+
+//Other Control Constants
+const float kJoystickDeadZone = .04f;

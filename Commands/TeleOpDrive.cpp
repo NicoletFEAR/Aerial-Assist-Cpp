@@ -1,7 +1,7 @@
 #include "TeleOpDrive.h"
 #include "../Robotmap.h"
 #include "../XBoxControllerMapping.h"
-
+#include <cmath>
 
 TeleOpDrive::TeleOpDrive()
 	:CommandBase("TeleOpDrive"),
@@ -17,15 +17,17 @@ void TeleOpDrive::Initialize()
 
 float TeleOpDrive::GetConvertedAxis(int axis)
 {
+	if(std::abs(controller->GetRawAxis(axis)) < kJoystickDeadZone)
+		return 0;
 	return controller->GetRawAxis(axis);
 }
 
 // Called repeatedly when this Command is scheduled to run
 void TeleOpDrive::Execute()
 {
-	float x = GetConvertedAxis(kLeftControlStickXAxis);
-	float y = GetConvertedAxis(kLeftControlStickYAxis);
-	float turn = GetConvertedAxis(kRightControlStickXAxis);
+	float x = GetConvertedAxis( kLeftControlStickXAxis );
+	float y = GetConvertedAxis( kLeftControlStickYAxis );
+	float turn = GetConvertedAxis( kRightControlStickXAxis );
 	chassis->Drive(x, y, turn);
 }
 

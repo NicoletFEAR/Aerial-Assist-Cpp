@@ -1,7 +1,7 @@
 #include "TeleOpDrive.h"
 #include "../Robotmap.h"
 #include "../XBoxControllerMapping.h"
-
+#include <cmath>
 
 TeleOpDrive::TeleOpDrive()
 	:CommandBase("TeleOpDrive"),
@@ -15,17 +15,26 @@ void TeleOpDrive::Initialize()
 {	
 }
 
-float TeleOpDrive::GetConvertedAxis(int axis)
+float TeleOpDrive::GetConvertedDriveAxis(int axis)
 {
-	return controller->GetRawAxis(axis);
+	float axisValue = controller->GetRawAxis(axis);
+	axisValue = std::abs(axisValue) >= .04f ? axisValue : 0;//Deadzone
+	int sign = axisValue >= 0 ? 1 : -1; //Store sign of axis to reapply after squaring
+	float squaredAxis = axisValue * axisValue;
+	return sign * squaredAxis;
+}
+
+float TeleOpDrive::GetConvertedTurnAxis(int axis)
+{
+	return controller->GetRawAxis(axis) * (1.0f / 3.0f);
 }
 
 // Called repeatedly when this Command is scheduled to run
 void TeleOpDrive::Execute()
 {
-	float x = GetConvertedAxis(kLeftControlStickXAxis);
-	float y = GetConvertedAxis(kLeftControlStickYAxis);
-	float turn = GetConvertedAxis(kRightControlStickXAxis);
+	float x = GetConvertedDriveAxis(kLeftControlStickXAxis);
+	float y = GetConvertedDriveAxis(kLeftControlStickYAxis);
+	float turn = GetConvertedTurnAxis(kRightControlStickXAxis);
 	chassis->Drive(x, y, turn);
 }
 

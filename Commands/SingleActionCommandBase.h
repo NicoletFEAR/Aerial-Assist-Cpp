@@ -1,5 +1,5 @@
 #pragma once
-#include "CommandBase.h"
+#include "../CommandBase.h"
 
 class SingleActionCommandBase : public CommandBase
 {

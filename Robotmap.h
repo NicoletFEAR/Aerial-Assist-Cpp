@@ -14,6 +14,12 @@
 // #define LEFTMOTOR 1
 // #define RIGHTMOTOR 2
 
+const int kLeftFrontMotor = 1;
+const int kRightFrontMotor = 2;
+const int kLeftRearMotor = 3;
+const int kRightRearMotor = 4;
+const int kDriveJoystickInput = 1;
+
 // If you are using multiple modules, make sure to define both the port
 // number and the module. For example you with a rangefinder:
 // #define RANGE_FINDER_PORT 1

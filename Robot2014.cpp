@@ -2,6 +2,7 @@
 #include "Commands/Command.h"
 #include "Commands/ExampleCommand.h"
 #include "CommandBase.h"
+#include <iostream>
 
 class Robot2014 : public IterativeRobot {
 private:
@@ -28,6 +29,7 @@ private:
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
 		autonomousCommand->Cancel();
+		std::cout<<"Start Teleop\r\n";
 	}
 	
 	virtual void TeleopPeriodic() {

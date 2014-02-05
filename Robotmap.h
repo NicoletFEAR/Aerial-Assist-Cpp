@@ -20,6 +20,9 @@ const int kLeftRearMotor = 3;
 const int kRightRearMotor = 4;
 const int kDriveJoystickInput = 1;
 
+const int kGrabberWheelsMotor = 5;
+const int kGrabberArmsMotor = 6;
+
 // If you are using multiple modules, make sure to define both the port
 // number and the module. For example you with a rangefinder:
 // #define RANGE_FINDER_PORT 1

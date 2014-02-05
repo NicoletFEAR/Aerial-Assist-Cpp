@@ -1,6 +1,7 @@
 #include "WPILib.h"
 #include "Commands/Command.h"
 #include "Commands/ExampleCommand.h"
+#include "Commands/AutonomousDrive.h"
 #include "CommandBase.h"
 #include <iostream>
 
@@ -11,7 +12,7 @@ private:
 	
 	virtual void RobotInit() {
 		CommandBase::init();
-		autonomousCommand = new ExampleCommand();
+		autonomousCommand = new AutonomousDrive();
 		lw = LiveWindow::GetInstance();
 	}
 	

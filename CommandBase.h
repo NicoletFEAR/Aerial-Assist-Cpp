@@ -3,6 +3,8 @@
 
 #include "Commands/Command.h"
 #include "Subsystems/Chassis.h"
+#include "Subsystems/GrabberArms.h"
+#include "Subsystems/GrabberWheels.h"
 #include "OI.h"
 
 
@@ -17,6 +19,8 @@ public:
 	CommandBase();
 	static void init();
 	static Chassis* chassis;
+	static GrabberWheels* grabberWheels;
+	static GrabberArms* grabberArms;
 	static OI *oi;
 };
 

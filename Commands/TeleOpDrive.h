@@ -10,7 +10,6 @@
 class TeleOpDrive: public CommandBase
 {
 private:
-	GenericHID* controller;
 	float GetConvertedDriveAxis(int axis);
 	float GetConvertedTurnAxis(int axis);
 public:

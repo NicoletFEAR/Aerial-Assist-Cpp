@@ -4,8 +4,7 @@
 #include <cmath>
 
 TeleOpDrive::TeleOpDrive()
-	:CommandBase("TeleOpDrive"),
-	 controller(new Joystick(kDriveJoystickInput))
+	:CommandBase("TeleOpDrive")
 {
 	Requires(chassis);
 }
@@ -17,7 +16,7 @@ void TeleOpDrive::Initialize()
 
 float TeleOpDrive::GetConvertedDriveAxis(int axis)
 {
-	float axisValue = controller->GetRawAxis(axis);
+	float axisValue = oi->DriveController()->GetRawAxis(axis);
 	axisValue = std::abs(axisValue) >= .04f ? axisValue : 0;//Deadzone
 	int sign = axisValue >= 0 ? 1 : -1; //Store sign of axis to reapply after squaring
 	float squaredAxis = axisValue * axisValue;
@@ -26,7 +25,7 @@ float TeleOpDrive::GetConvertedDriveAxis(int axis)
 
 float TeleOpDrive::GetConvertedTurnAxis(int axis)
 {
-	return controller->GetRawAxis(axis) * (1.0f / 3.0f);
+	return oi->DriveController()->GetRawAxis(axis) * (1.0f / 3.0f);
 }
 
 // Called repeatedly when this Command is scheduled to run

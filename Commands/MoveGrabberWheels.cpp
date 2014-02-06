@@ -1,7 +1,8 @@
 #include "MoveGrabberWheels.h"
 
 MoveGrabberWheels::MoveGrabberWheels(Direction direction)
-	:direction(direction){
+	:CommandBase("MoveGrabberWheels"),
+	 direction(direction){
 	Requires(grabberWheels);
 }
 

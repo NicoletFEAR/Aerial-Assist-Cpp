@@ -4,7 +4,7 @@
 
 Launcher::Launcher()
 	:Subsystem("Launcher"),
-	 chargingMotor(new Victor(kChargingMotor)),
+	 chargingMotor(new Jaguar(kChargingMotor)),
 	 clutchServo(kClutchServo)
 {
 	
@@ -18,7 +18,7 @@ void Launcher::InitDefaultCommand()
 void Launcher::RunMotor(float speed)
 {
 	speed = std::abs(speed);
-	chargingMotor->Set(speed);
+	chargingMotor->Set(-speed);
 }
 
 void Launcher::StopMotor()
@@ -28,10 +28,10 @@ void Launcher::StopMotor()
 
 void Launcher::ReleaseClutch()
 {
-	clutchServo.SetAngle(Servo::GetMaxAngle());
+	clutchServo.SetAngle(180);
 }
 
 void Launcher::EngageClutch()
 {
-	clutchServo.SetAngle(Servo::GetMinAngle());
+	clutchServo.SetAngle(0);
 }

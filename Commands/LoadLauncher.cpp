@@ -14,12 +14,12 @@ void LoadLauncher::Initialize()
 
 void LoadLauncher::Execute()
 {
-	launcher->RunMotor(1.0f);
+	launcher->RunMotor(0.5f);
 }
 
 bool LoadLauncher::IsFinished()
 {
-	return limitSwitch.Get();
+	return limitSwitch.Get() == 1;
 }
 
 void LoadLauncher::End()

@@ -16,7 +16,7 @@ OI* CommandBase::oi = NULL;
 void CommandBase::init() {
     // Create a single static instance of all of your subsystems. The following
 	// line should be repeated for each subsystem in the project.
-	chassis = new Chassis();
+	//chassis = new Chassis();
 	launcher = new Launcher();
 	oi = new OI();
 }

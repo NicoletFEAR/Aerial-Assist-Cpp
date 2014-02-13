@@ -5,7 +5,7 @@
 Launcher::Launcher()
 	:Subsystem("Launcher"),
 	 chargingMotor(new Jaguar(kChargingMotor)),
-	 clutchServo(kClutchServo)
+	 clutchSolenoid(kClutchSolenoid)
 {
 	
 }
@@ -28,10 +28,10 @@ void Launcher::StopMotor()
 
 void Launcher::ReleaseClutch()
 {
-	clutchServo.SetAngle(180);
+	clutchSolenoid.Set(1);
 }
 
 void Launcher::EngageClutch()
 {
-	clutchServo.SetAngle(0);
+	clutchSolenoid.Set(0);
 }

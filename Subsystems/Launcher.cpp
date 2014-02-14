@@ -1,6 +1,7 @@
 #include "Launcher.h"
 #include "../Robotmap.h"
 #include <cmath>
+#include "../Commands/EngageClutch.h"
 
 Launcher::Launcher()
 	:Subsystem("Launcher"),
@@ -14,8 +15,7 @@ Launcher::Launcher()
 
 void Launcher::InitDefaultCommand()
 {
-	disengageClutchSolenoid.Set(false);
-	engageClutchSolenoid.Set(true);
+	SetDefaultCommand(new ::EngageClutch());
 }
 
 void Launcher::RunMotor(float speed)

@@ -5,7 +5,8 @@
 Launcher::Launcher()
 	:Subsystem("Launcher"),
 	 chargingMotor(new Jaguar(kChargingMotor)),
-	 clutchSolenoid(kClutchSolenoid)
+	 disengageClutchSolenoid(kDisengageSolenoid),
+	 engageClutchSolenoid(kEngageSolenoid)
 {
 	
 }
@@ -28,10 +29,12 @@ void Launcher::StopMotor()
 
 void Launcher::ReleaseClutch()
 {
-	clutchSolenoid.Set(1);
+	disengageClutchSolenoid.Set(true);
+	engageClutchSolenoid.Set(false);
 }
 
 void Launcher::EngageClutch()
 {
-	clutchSolenoid.Set(0);
+	disengageClutchSolenoid.Set(false);
+	engageClutchSolenoid.Set(true);
 }

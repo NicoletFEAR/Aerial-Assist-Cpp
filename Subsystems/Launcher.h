@@ -5,7 +5,8 @@ class Launcher : public Subsystem
 {
 private:
 	SpeedController* chargingMotor;
-	Solenoid clutchSolenoid;
+	Solenoid disengageClutchSolenoid;
+	Solenoid engageClutchSolenoid;
 public:
 	Launcher();
 	void InitDefaultCommand();

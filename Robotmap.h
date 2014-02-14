@@ -20,7 +20,8 @@ const int kLeftRearMotor = 3;
 const int kRightRearMotor = 4;
 const int kDriveJoystickInput = 1;
 const int kChargingMotor = 3;
-const int kClutchSolenoid = 1;
+const int kDisengageSolenoid = 1;
+const int kEngageSolenoid = 2;
 const int kLauncherLimitSwitch = 1;
 
 // If you are using multiple modules, make sure to define both the port

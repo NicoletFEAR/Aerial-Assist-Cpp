@@ -14,6 +14,8 @@ Launcher::Launcher()
 
 void Launcher::InitDefaultCommand()
 {
+	disengageClutchSolenoid.Set(false);
+	engageClutchSolenoid.Set(true);
 }
 
 void Launcher::RunMotor(float speed)

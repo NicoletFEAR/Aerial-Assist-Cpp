@@ -20,10 +20,10 @@ const int kLeftRearMotor = 3;
 const int kRightRearMotor = 4;
 const int kDriveJoystickInput = 1;
 
-const int kGrabberWheelsMotor = 6;
-const int kGrabberArmsMotor = 5;
-const int kGrabberDownSwitch = 1;
-const int kGrabberUpSwitch = 2;
+const int kGrabberWheelsMotor = 7;
+const int kGrabberArmsMotor = 6;
+const int kGrabberDownSwitch = 11;
+const int kGrabberUpSwitch = 12;
 
 const int kGrabberArmDownLimitSwitch = 1;
 const int kGrabberArmUpLimitSwitch = 2;

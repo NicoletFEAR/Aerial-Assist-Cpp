@@ -7,7 +7,7 @@ GrabberArms::GrabberArms()
 	: Subsystem("GrabberArms"),
 	  controller(new Victor(kGrabberArmsMotor))
 {
-
+	
 }
 
 void GrabberArms::InitDefaultCommand()
@@ -20,10 +20,10 @@ void GrabberArms::MoveArms(Direction direction)
 	switch(direction)
 	{
 	case Forward:
-		controller->Set(.1);
+		controller->Set(-SmartDashboard::GetNumber("Arm Speed Down"));
 		break;
 	case Backward:
-		controller->Set(-.1);
+		controller->Set(SmartDashboard::GetNumber("Arm Speed Up"));
 		break;
 	}
 }

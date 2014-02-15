@@ -2,7 +2,7 @@
 #include "../CommandBase.h"
 
 
-class MoveGrabberWheels : CommandBase
+class MoveGrabberWheels : public CommandBase
 {
 private:
 	Direction direction;

@@ -3,6 +3,7 @@
 
 #include "Commands/Command.h"
 #include "Subsystems/Chassis.h"
+#include "Subsystems/Launcher.h"
 #include "OI.h"
 
 
@@ -17,6 +18,7 @@ public:
 	CommandBase();
 	static void init();
 	static Chassis* chassis;
+	static Launcher* launcher;
 	static OI *oi;
 };
 

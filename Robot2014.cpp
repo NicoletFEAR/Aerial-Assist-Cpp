@@ -4,6 +4,10 @@
 #include "CommandBase.h"
 #include <iostream>
 
+#include "Commands/LoadLauncher.h"
+#include "Commands/FireLauncher.h"
+#include "Commands/EngageClutch.h"
+
 class Robot2014 : public IterativeRobot {
 private:
 	Command *autonomousCommand;
@@ -30,6 +34,9 @@ private:
 		// this line or comment it out.
 		autonomousCommand->Cancel();
 		std::cout<<"Start Teleop\r\n";
+		SmartDashboard::PutData(new LoadLauncher());
+		SmartDashboard::PutData(new FireLauncher());
+		SmartDashboard::PutData(new EngageClutch());
 	}
 	
 	virtual void TeleopPeriodic() {

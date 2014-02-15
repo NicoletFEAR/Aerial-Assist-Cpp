@@ -14,11 +14,11 @@
 // #define LEFTMOTOR 1
 // #define RIGHTMOTOR 2
 
-const int kLeftFrontMotor = 4;
-const int kRightFrontMotor = 5;
-const int kLeftRearMotor = 6;
-const int kRightRearMotor = 7;
-const int kChargingMotor = 1;
+const int kLeftFrontMotor = 1;
+const int kRightFrontMotor = 2;
+const int kLeftRearMotor = 3;
+const int kRightRearMotor = 4;
+const int kChargingMotor = 5;
 const int kLauncherLimitSwitch = 9;
 const int kDisengageSolenoid = 1;
 const int kEngageSolenoid = 2;

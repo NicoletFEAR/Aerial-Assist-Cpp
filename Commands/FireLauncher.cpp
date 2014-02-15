@@ -4,7 +4,7 @@ FireLauncher::FireLauncher()
 	:CommandBase("FireLauncher")
 {
 	Requires(launcher);
-	SetTimeout(5);
+	SetTimeout(.5);
 }
 
 void FireLauncher::Initialize()

@@ -4,8 +4,6 @@
 
 class EngageClutch : public CommandBase
 {
-private:
-	Encoder encoder;
 public:
 	EngageClutch();
 	void Initialize();

@@ -1,5 +1,4 @@
-#ifndef EXAMPLE_COMMAND_H
-#define EXAMPLE_COMMAND_H
+#pragma once
 
 #include "../CommandBase.h"
 
@@ -8,9 +7,13 @@
  *
  * @author ExampleAuthor
  */
-class ExampleCommand: public CommandBase {
+class TeleOpDrive: public CommandBase
+{
+private:
+	float GetConvertedDriveAxis(int axis);
+	float GetConvertedTurnAxis(int axis);
 public:
-	ExampleCommand();
+	TeleOpDrive();
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();
@@ -18,4 +21,3 @@ public:
 	virtual void Interrupted();
 };
 
-#endif

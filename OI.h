@@ -5,9 +5,10 @@
 
 class OI {
 private:
-
+	GenericHID* driveController;
 public:
 	OI();
+	GenericHID* DriveController();
 };
 
 #endif

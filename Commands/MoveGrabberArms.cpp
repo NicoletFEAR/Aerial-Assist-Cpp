@@ -1,10 +1,11 @@
 #include "MoveGrabberArms.h"
+#include "../Robotmap.h"
 
 MoveGrabberArms::MoveGrabberArms(Direction direction)
 	:CommandBase("MoveGrabberArms"),
 	direction(direction),
-	 armDownLimitSwitch(1),
-	 armUpLimitSwitch(2)
+	 armUpLimitSwitch(kGrabberUpSwitch),
+	armDownLimitSwitch(kGrabberDownSwitch)
 {
 	Requires(grabberArms);
 }
@@ -24,9 +25,9 @@ bool MoveGrabberArms::IsFinished() {
 	switch(direction)
 	{
 	case Forward:
-		return armDownLimitSwitch.Get() == 1;
+		return armDownLimitSwitch.Get();
 	case Backward:
-		return armUpLimitSwitch.Get() == 0;
+		return armUpLimitSwitch.Get();
 	default:
 		return true;
 	}

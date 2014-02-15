@@ -3,9 +3,9 @@
 #include "../Robotmap.h"
 
 Chassis::Chassis() : Subsystem("Chassis"),
-	leftFrontMotor(new Jaguar(kLeftFrontMotor)),
-	rightFrontMotor(new Jaguar(kRightFrontMotor)),
-	leftRearMotor(new Jaguar(kLeftRearMotor)),
+	leftFrontMotor(new Victor(kLeftFrontMotor)),
+	rightFrontMotor(new Victor(kRightFrontMotor)),
+	leftRearMotor(new Victor(kLeftRearMotor)),
 	rightRearMotor(new Victor(kRightRearMotor)),
 	driveSystem(leftFrontMotor, leftRearMotor, rightFrontMotor, rightRearMotor)
 {

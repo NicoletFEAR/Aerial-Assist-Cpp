@@ -7,7 +7,7 @@ class ReloadLauncher : public CommandGroup
 {
 public:
 	ReloadLauncher()
-		:CommmandGroup("ReloadLauncher")
+		:CommandGroup("ReloadLauncher")
 	{
 		AddSequential(new EngageClutch());
 		AddSequential(new LoadLauncher());

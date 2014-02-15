@@ -18,6 +18,10 @@ const int kLeftFrontMotor = 4;
 const int kRightFrontMotor = 5;
 const int kLeftRearMotor = 6;
 const int kRightRearMotor = 7;
+const int kChargingMotor = 1;
+const int kLauncherLimitSwitch = 9;
+const int kDisengageSolenoid = 1;
+const int kEngageSolenoid = 2;
 
 // If you are using multiple modules, make sure to define both the port
 // number and the module. For example you with a rangefinder:

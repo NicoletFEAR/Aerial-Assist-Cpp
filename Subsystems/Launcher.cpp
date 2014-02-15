@@ -5,7 +5,7 @@
 
 Launcher::Launcher()
 	:Subsystem("Launcher"),
-	 chargingMotor(new Jaguar(kChargingMotor)),
+	 chargingMotor(new Victor(kChargingMotor)),
 	 disengageClutchSolenoid(kDisengageSolenoid),
 	 engageClutchSolenoid(kEngageSolenoid)
 {

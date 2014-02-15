@@ -1,6 +1,6 @@
 #include "GrabberArms.h"
 #include "../Robotmap.h"
-#include "../Direction.h"
+#include "../Direction.h" 
 #include "WPILib.h"
 
 GrabberArms::GrabberArms()
@@ -15,20 +15,20 @@ void GrabberArms::InitDefaultCommand()
 	
 }
 
-void GrabberArms::MoveWheels(Direction direction)
+void GrabberArms::MoveArms(Direction direction)
 {
 	switch(direction)
 	{
 	case Forward:
-		controller->Set(1);
+		controller->Set(.1);
 		break;
 	case Backward:
-		controller->Set(-1);
+		controller->Set(-.1);
 		break;
 	}
 }
 
-void GrabberArms::StopWheels()
+void GrabberArms::StopArms()
 {
 	controller->Set(0);
 }

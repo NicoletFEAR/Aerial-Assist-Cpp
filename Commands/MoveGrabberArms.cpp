@@ -17,7 +17,7 @@ void MoveGrabberArms::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void MoveGrabberArms::Execute() {
-	grabberArms->MoveWheels(direction);
+	grabberArms->MoveArms(direction);
 }
 
 // Make this return true when this Command no longer needs to run execute()
@@ -35,7 +35,7 @@ bool MoveGrabberArms::IsFinished() {
 
 // Called once after isFinished returns true
 void MoveGrabberArms::End() {
-	grabberArms->StopWheels();
+	grabberArms->StopArms();
 }
 
 // Called when another command which requires one or more of the same

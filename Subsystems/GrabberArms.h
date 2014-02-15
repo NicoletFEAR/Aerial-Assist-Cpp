@@ -11,8 +11,8 @@ private:
 public:
 	GrabberArms();
 	void InitDefaultCommand();
-	void MoveWheels(Direction direction);
-	void StopWheels();
+	void MoveArms(Direction direction);
+	void StopArms();
 };
 
 #endif 

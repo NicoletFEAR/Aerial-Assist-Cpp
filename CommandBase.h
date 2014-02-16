@@ -4,6 +4,8 @@
 #include "Commands/Command.h"
 #include "Subsystems/Chassis.h"
 #include "Subsystems/Launcher.h"
+#include "Subsystems/GrabberArms.h"
+#include "Subsystems/GrabberWheels.h"
 #include "OI.h"
 
 
@@ -19,6 +21,8 @@ public:
 	static void init();
 	static Chassis* chassis;
 	static Launcher* launcher;
+	static GrabberArms* grabberArms;
+	static GrabberWheels* grabberWheels;
 	static OI *oi;
 };
 

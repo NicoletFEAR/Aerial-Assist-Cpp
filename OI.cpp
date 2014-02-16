@@ -34,8 +34,8 @@ OI::OI()
 	InitializeButton(new JoystickButton(gameMechController, kAButton), new FireAndReloadLauncher(), &Button::WhenPressed);
 	InitializeButton(new JoystickButton(gameMechController, kYButton), new MoveGrabberWheels(Forward), &Button::ToggleWhenPressed);
 	InitializeButton(new JoystickButton(gameMechController, kBButton), new MoveGrabberWheels(Backward), &Button::ToggleWhenPressed);
-	InitializeButton(new AxisButton(gameMechController, kDPadHorizontalAxis, 1, true), new MoveGrabberArms(Backward), &Button::WhenPressed);
-	InitializeButton(new AxisButton(gameMechController, kDPadHorizontalAxis, -1, true), new MoveGrabberArms(Forward), &Button::WhenPressed);
+	InitializeButton(new AxisButton(gameMechController, kDPadHorizontalAxis, 1, true), new MoveGrabberArms(Forward), &Button::WhenPressed);
+	InitializeButton(new AxisButton(gameMechController, kDPadHorizontalAxis, -1, true), new MoveGrabberArms(Backward), &Button::WhenPressed);
 }
 
 GenericHID* OI::DriveController()

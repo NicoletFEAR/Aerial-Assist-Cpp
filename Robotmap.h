@@ -14,14 +14,16 @@
 // #define LEFTMOTOR 1
 // #define RIGHTMOTOR 2
 
-const int kLeftFrontMotor = 1;
+const int kLeftFrontMotor = 1;//These are PWM channels
 const int kRightFrontMotor = 2;
 const int kLeftRearMotor = 3;
 const int kRightRearMotor = 4;
 const int kChargingMotor = 5;
-const int kLauncherLimitSwitch = 9;
+const int kLauncherLimitSwitch = 9; // These are relay channels
 const int kDisengageSolenoid = 1;
 const int kEngageSolenoid = 2;
+const uint32_t kPressureSwitchChannel = 2;
+const uint32_t kCompressorRelayChannel = 4;
 
 // If you are using multiple modules, make sure to define both the port
 // number and the module. For example you with a rangefinder:

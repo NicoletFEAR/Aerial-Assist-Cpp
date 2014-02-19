@@ -25,7 +25,7 @@ float TeleOpDrive::GetConvertedDriveAxis(int axis)
 
 float TeleOpDrive::GetConvertedTurnAxis(int axis)
 {
-	return oi->DriveController()->GetRawAxis(axis) * (1.0f / 3.0f);
+	return oi->DriveController()->GetRawAxis(axis) * (1.0f / 2.0f);
 }
 
 // Called repeatedly when this Command is scheduled to run

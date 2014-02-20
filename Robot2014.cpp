@@ -1,8 +1,13 @@
 #include "WPILib.h"
 #include "Commands/Command.h"
 #include "Commands/ExampleCommand.h"
+#include "Commands/AutonomousDrive.h"
 #include "CommandBase.h"
 #include <iostream>
+
+#include "Commands/LoadLauncher.h"
+#include "Commands/FireLauncher.h"
+#include "Commands/EngageClutch.h"
 
 class Robot2014 : public IterativeRobot {
 private:
@@ -11,7 +16,7 @@ private:
 	
 	virtual void RobotInit() {
 		CommandBase::init();
-		autonomousCommand = new ExampleCommand();
+		autonomousCommand = new AutonomousDrive();
 		lw = LiveWindow::GetInstance();
 	}
 	
@@ -30,6 +35,9 @@ private:
 		// this line or comment it out.
 		autonomousCommand->Cancel();
 		std::cout<<"Start Teleop\r\n";
+		SmartDashboard::PutData(new LoadLauncher());
+		SmartDashboard::PutData(new FireLauncher());
+		SmartDashboard::PutData(new EngageClutch());
 	}
 	
 	virtual void TeleopPeriodic() {

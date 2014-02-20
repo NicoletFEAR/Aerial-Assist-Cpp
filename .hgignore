@@ -3,4 +3,7 @@ syntax: glob
 *.d
 *~
 *.out
+
 *.DS_Store
+ctdt.c
+Makefile

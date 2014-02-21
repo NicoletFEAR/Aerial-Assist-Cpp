@@ -19,11 +19,11 @@ const int kRightFrontMotor = 2;
 const int kLeftRearMotor = 3;
 const int kRightRearMotor = 4;
 const int kChargingMotor = 5;
-const int kLauncherLimitSwitch = 9; // These are relay channels
+const int kLauncherLimitSwitch = 9;
 const int kDisengageSolenoid = 1;
 const int kEngageSolenoid = 2;
-const uint32_t kPressureSwitchChannel = 2;
-const uint32_t kCompressorRelayChannel = 4;
+const int kPressureSwitchChannel = 2;
+const int kCompressorRelayChannel = 4;
 
 const int kGrabberWheelsMotor = 7;
 const int kGrabberArmsMotor = 6;

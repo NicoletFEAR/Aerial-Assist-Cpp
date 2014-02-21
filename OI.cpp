@@ -3,6 +3,7 @@
 #include "Commands/FireAndReloadLauncher.h"
 #include "Commands/MoveGrabberArms.h"
 #include "Commands/MoveGrabberWheels.h"
+#include "Commands/RunCompressor.h"
 
 OI::OI()
 	:driveController(new Joystick(1)),
@@ -13,6 +14,7 @@ OI::OI()
 	InitializeButton(new JoystickButton(gameMechController, kBButton), new MoveGrabberWheels(Backward), &Button::ToggleWhenPressed);
 	InitializeButton(new JoystickButton(gameMechController, kRightBumper), new MoveGrabberArms(Backward), &Button::WhenPressed);
 	InitializeButton(new JoystickButton(gameMechController, kLeftBumper), new MoveGrabberArms(Forward), &Button::WhenPressed);
+	SmartDashboard::PutData(new RunCompressor());
 }
 
 GenericHID* OI::DriveController()

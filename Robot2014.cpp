@@ -1,8 +1,10 @@
 #include "WPILib.h"
 #include "Commands/Command.h"
 #include "Commands/ExampleCommand.h"
-#include "Commands/AutonomousDrive.h"
+#include "Commands/Autonomous.h"
 #include "CommandBase.h"
+#include "Commands/MoveGrabberArms.h"
+#include "Commands/MoveGrabberWheels.h"
 #include <iostream>
 
 #include "Commands/LoadLauncher.h"
@@ -19,9 +21,15 @@ private:
 	//c->Start();
 	
 	virtual void RobotInit() {
+		std::cout<<"Start RobotInit\n";
+		std::cout<<"Init CommandBase (Subsystems and OI)\n";
 		CommandBase::init();
+		std::cout<<"Init AutonomousDrive\n";
 		autonomousCommand = new AutonomousDrive();
+		std::cout<<"Init LiveWindow reference\n";
+		autonomousCommand = new Autonomous();
 		lw = LiveWindow::GetInstance();
+		std::cout<<"End of RobotInit"<<std::endl;
 	}
 	
 
@@ -41,9 +49,6 @@ private:
 		// this line or comment it out.
 		autonomousCommand->Cancel();
 		std::cout<<"Start Teleop\r\n";
-		SmartDashboard::PutData(new LoadLauncher());
-		SmartDashboard::PutData(new FireLauncher());
-		SmartDashboard::PutData(new EngageClutch());
 	}
 	
 	virtual void TeleopPeriodic() {

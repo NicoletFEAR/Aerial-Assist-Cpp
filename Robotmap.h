@@ -25,6 +25,11 @@ const int kEngageSolenoid = 2;
 const uint32_t kPressureSwitchChannel = 2;
 const uint32_t kCompressorRelayChannel = 4;
 
+const int kGrabberWheelsMotor = 7;
+const int kGrabberArmsMotor = 6;
+const int kGrabberDownSwitch = 11;
+const int kGrabberUpSwitch = 12;
+
 // If you are using multiple modules, make sure to define both the port
 // number and the module. For example you with a rangefinder:
 // #define RANGE_FINDER_PORT 1

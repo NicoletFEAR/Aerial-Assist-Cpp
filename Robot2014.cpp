@@ -17,9 +17,15 @@ private:
 	LiveWindow *lw;
 	
 	virtual void RobotInit() {
+		std::cout<<"Start RobotInit\n";
+		std::cout<<"Init CommandBase (Subsystems and OI)\n";
 		CommandBase::init();
+		std::cout<<"Init AutonomousDrive\n";
+		autonomousCommand = new AutonomousDrive();
+		std::cout<<"Init LiveWindow reference\n";
 		autonomousCommand = new Autonomous();
 		lw = LiveWindow::GetInstance();
+		std::cout<<"End of RobotInit"<<std::endl;
 	}
 	
 	virtual void AutonomousInit() {

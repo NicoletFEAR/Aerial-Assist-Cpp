@@ -10,7 +10,6 @@ private:
 	GenericHID* gameMechController;
 	std::vector<Button*> buttons;
 	typedef void (Button::*RegistrationMethod)(Command*); //Registration Method is a pointer to a member function on Button
-	
 	/*
 	 * @param button: The button to register the command on
 	 * @param command: The command to register

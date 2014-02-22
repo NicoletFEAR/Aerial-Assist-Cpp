@@ -22,8 +22,8 @@ const int kChargingMotor = 5;
 const int kLauncherLimitSwitch = 9;
 const int kDisengageSolenoid = 1;
 const int kEngageSolenoid = 2;
-const int kPressureSwitchChannel = 2;
-const int kCompressorRelayChannel = 4;
+const int kPressureSwitchChannel = 14;
+const int kCompressorRelayChannel = 1;
 
 const int kGrabberWheelsMotor = 7;
 const int kGrabberArmsMotor = 6;

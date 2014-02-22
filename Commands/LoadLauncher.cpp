@@ -1,5 +1,8 @@
 #include "LoadLauncher.h"
 #include "../Robotmap.h"
+#include "../Potentiometers.h"
+
+const double kMaxTurnDegrees = 360 * 9.75;
 
 LoadLauncher::LoadLauncher()
 	:CommandBase("LoadLauncher"),
@@ -19,7 +22,7 @@ void LoadLauncher::Execute()
 
 bool LoadLauncher::IsFinished()
 {
-	return limitSwitch.Get() == 1;
+	return LauncherPotentiometer().Get() == kMaxTurnDegrees || limitSwitch.Get() == 1;
 }
 
 void LoadLauncher::End()

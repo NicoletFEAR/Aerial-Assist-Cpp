@@ -10,11 +10,15 @@
 #include "Commands/LoadLauncher.h"
 #include "Commands/FireLauncher.h"
 #include "Commands/EngageClutch.h"
-
+#include "Robotmap.h"
 class Robot2014 : public IterativeRobot {
 private:
 	Command *autonomousCommand;
 	LiveWindow *lw;
+	
+	//Jermey where does this go? 
+	//Compressor *c = new Compressor(kPressureSwitchChannel, kCompressorRelayChannel);
+	//c->Start();
 	
 	virtual void RobotInit() {
 		std::cout<<"Start RobotInit\n";
@@ -27,6 +31,8 @@ private:
 		lw = LiveWindow::GetInstance();
 		std::cout<<"End of RobotInit"<<std::endl;
 	}
+	
+
 	
 	virtual void AutonomousInit() {
 		autonomousCommand->Start();

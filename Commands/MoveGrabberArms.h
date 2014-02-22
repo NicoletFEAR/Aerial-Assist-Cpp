@@ -11,7 +11,10 @@ private:
 	Direction direction;
 	DigitalInput armUpLimitSwitch;
 	DigitalInput armDownLimitSwitch;
+	static const double armUpAngle = 90;
+	static const double armDownAngle = 35;
 public:
+	//Forward = Up, Backward = Down
 	MoveGrabberArms(Direction direction);
 	void Initialize();
 	void Execute();

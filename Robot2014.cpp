@@ -25,7 +25,7 @@ private:
 		std::cout<<"Init CommandBase (Subsystems and OI)\n";
 		CommandBase::init();
 		std::cout<<"Init AutonomousDrive\n";
-		autonomousCommand = new AutonomousDrive();
+		autonomousCommand = new Autonomous();
 		std::cout<<"Init LiveWindow reference\n";
 		autonomousCommand = new Autonomous();
 		lw = LiveWindow::GetInstance();

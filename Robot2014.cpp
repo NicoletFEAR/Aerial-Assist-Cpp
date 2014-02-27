@@ -5,11 +5,9 @@
 #include "CommandBase.h"
 #include "Commands/MoveGrabberArms.h"
 #include "Commands/MoveGrabberWheels.h"
+#include "Potentiometers.h"
 #include <iostream>
 
-#include "Commands/LoadLauncher.h"
-#include "Commands/FireLauncher.h"
-#include "Commands/EngageClutch.h"
 #include "Robotmap.h"
 class Robot2014 : public IterativeRobot {
 private:
@@ -52,6 +50,8 @@ private:
 	}
 	
 	virtual void TeleopPeriodic() {
+		SmartDashboard::PutNumber("Grabber Pot Value", GrabberPotentiometer().Get());
+		SmartDashboard::PutNumber("Launcher Pot Value", LauncherPotentiometer().Get());
 		Scheduler::GetInstance()->Run();
 	}
 	

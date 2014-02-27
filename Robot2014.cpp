@@ -14,10 +14,6 @@ private:
 	Command *autonomousCommand;
 	LiveWindow *lw;
 	
-	//Jermey where does this go? 
-	//Compressor *c = new Compressor(kPressureSwitchChannel, kCompressorRelayChannel);
-	//c->Start();
-	
 	virtual void RobotInit() {
 		std::cout<<"Start RobotInit\n";
 		std::cout<<"Init CommandBase (Subsystems and OI)\n";

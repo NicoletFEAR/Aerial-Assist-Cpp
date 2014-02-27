@@ -2,6 +2,6 @@
 
 enum Direction
 {
-	Forward,
-	Backward
+	Forward, //Clockwise
+	Backward //Counterclockwise
 };

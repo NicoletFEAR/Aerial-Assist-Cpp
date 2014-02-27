@@ -25,9 +25,9 @@ bool MoveGrabberArms::IsFinished() {
 	switch(direction)
 	{
 	case Forward:
-		return armDownLimitSwitch.Get();
-	case Backward:
 		return armUpLimitSwitch.Get();
+	case Backward:
+		return armDownLimitSwitch.Get();
 	default:
 		return true;
 	}

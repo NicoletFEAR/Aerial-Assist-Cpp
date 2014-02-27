@@ -23,7 +23,6 @@ private:
 		std::cout<<"Init AutonomousDrive\n";
 		autonomousCommand = new AutonomousDrive();
 		std::cout<<"Init LiveWindow reference\n";
-		autonomousCommand = new Autonomous();
 		lw = LiveWindow::GetInstance();
 		std::cout<<"End of RobotInit"<<std::endl;
 	}

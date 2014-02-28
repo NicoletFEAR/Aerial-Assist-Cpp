@@ -1,5 +1,6 @@
 #include "MoveGrabberArms.h"
 #include "../Robotmap.h"
+#include "../InternalButtons.h"
 
 MoveGrabberArms::MoveGrabberArms(Direction direction)
 	:CommandBase("MoveGrabberArms"),
@@ -22,6 +23,7 @@ void MoveGrabberArms::Execute() {
 
 // Make this return true when this Command no longer needs to run execute()
 bool MoveGrabberArms::IsFinished() {
+	if(SensorOverride().Get()) return false;
 	switch(direction)
 	{
 	case Forward:

@@ -3,16 +3,20 @@
 #include "Commands/FireAndReloadLauncher.h"
 #include "Commands/MoveGrabberArms.h"
 #include "Commands/MoveGrabberWheels.h"
+#include "Commands/RunCompressor.h"
+#include "Commands/OverrideSensors.h"
 
 OI::OI()
 	:driveController(new Joystick(1)),
 	 gameMechController(new Joystick(2))
 {
-	InitializeButton(new JoystickButton(gameMechController, kAButton), new FireAndReloadLauncher(), &Button::WhenPressed);
+	InitializeButton(new JoystickButton(gameMechController, kAButton), new FireAndReloadLauncher(), &Button::ToggleWhenPressed);
 	InitializeButton(new JoystickButton(gameMechController, kYButton), new MoveGrabberWheels(Forward), &Button::ToggleWhenPressed);
 	InitializeButton(new JoystickButton(gameMechController, kBButton), new MoveGrabberWheels(Backward), &Button::ToggleWhenPressed);
-	InitializeButton(new JoystickButton(gameMechController, kRightBumper), new MoveGrabberArms(Backward), &Button::WhenPressed);
-	InitializeButton(new JoystickButton(gameMechController, kLeftBumper), new MoveGrabberArms(Forward), &Button::WhenPressed);
+	InitializeButton(new JoystickButton(gameMechController, kRightBumper), new MoveGrabberArms(Backward), &Button::ToggleWhenPressed);
+	InitializeButton(new JoystickButton(gameMechController, kLeftBumper), new MoveGrabberArms(Forward), &Button::ToggleWhenPressed);
+	InitializeButton(new JoystickButton(gameMechController, kBackButton), new OverrideSensors(), &Button::WhenPressed);
+	
 }
 
 GenericHID* OI::DriveController()

@@ -1,5 +1,6 @@
 #include "LoadLauncher.h"
 #include "../Robotmap.h"
+#include "../InternalButtons.h"
 
 LoadLauncher::LoadLauncher()
 	:CommandBase("LoadLauncher"),
@@ -19,6 +20,7 @@ void LoadLauncher::Execute()
 
 bool LoadLauncher::IsFinished()
 {
+	if(SensorOverride().Get()) return false;
 	return limitSwitch.Get() == 1;
 }
 

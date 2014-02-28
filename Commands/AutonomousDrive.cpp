@@ -4,7 +4,7 @@ AutonomousDrive::AutonomousDrive()
 	:CommandBase("AutonomousDrive")
 {
 	Requires(chassis);
-	SetTimeout(1.2);
+	SetTimeout(2);
 }
 
 void AutonomousDrive::Initialize()

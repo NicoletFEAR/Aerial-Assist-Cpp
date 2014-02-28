@@ -15,7 +15,8 @@ void LoadLauncher::Initialize()
 
 void LoadLauncher::Execute()
 {
-	launcher->RunMotor(0.5f);
+	launcher->RunMotor(1.0f);
+	SmartDashboard::PutString("Loading?", "LOADING");
 }
 
 bool LoadLauncher::IsFinished()
@@ -27,6 +28,7 @@ bool LoadLauncher::IsFinished()
 void LoadLauncher::End()
 {
 	launcher->StopMotor();
+	SmartDashboard::PutString("Loading?","");
 }
 
 void LoadLauncher::Interrupted()

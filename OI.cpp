@@ -1,7 +1,7 @@
 #include "OI.h"
 #include "XBoxControllerMapping.h"
 #include "Commands/FireLauncher.h"
-#include "Commands/LoadLauncher.h"
+#include "Commands/ReloadLauncher.h"
 #include "Commands/MoveGrabberArms.h"
 #include "Commands/MoveGrabberWheels.h"
 #include "Commands/RunCompressor.h"
@@ -12,7 +12,7 @@ OI::OI()
 	 gameMechController(new Joystick(2))
 {
 	InitializeButton(new JoystickButton(gameMechController, kAButton), new FireLauncher(), &Button::ToggleWhenPressed);
-	InitializeButton(new JoystickButton(gameMechController, kXButton), new LoadLauncher(), &Button::ToggleWhenPressed);
+	InitializeButton(new JoystickButton(gameMechController, kXButton), new ReloadLauncher(), &Button::ToggleWhenPressed);
 	InitializeButton(new JoystickButton(gameMechController, kYButton), new MoveGrabberWheels(Forward), &Button::ToggleWhenPressed);
 	InitializeButton(new JoystickButton(gameMechController, kBButton), new MoveGrabberWheels(Backward), &Button::ToggleWhenPressed);
 	InitializeButton(new JoystickButton(gameMechController, kRightBumper), new MoveGrabberArms(Backward), &Button::ToggleWhenPressed);

@@ -16,16 +16,12 @@ private:
 	Command *autonomousCommand;
 	LiveWindow *lw;
 	
-	//Jermey where does this go? 
-	//Compressor *c = new Compressor(kPressureSwitchChannel, kCompressorRelayChannel);
-	//c->Start();
-	
 	virtual void RobotInit() {
 		std::cout<<"Start RobotInit\n";
 		std::cout<<"Init CommandBase (Subsystems and OI)\n";
 		CommandBase::init();
 		std::cout<<"Init AutonomousDrive\n";
-		autonomousCommand = new Autonomous();
+		autonomousCommand = new AutonomousDrive();
 		std::cout<<"Init LiveWindow reference\n";
 		lw = LiveWindow::GetInstance();
 		Compressor * c = new Compressor(kPressureSwitchChannel, kCompressorRelayChannel);

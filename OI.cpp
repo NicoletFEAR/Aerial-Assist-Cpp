@@ -15,7 +15,7 @@ OI::OI()
 	InitializeButton(new JoystickButton(gameMechController, kBButton), new MoveGrabberWheels(Backward), &Button::ToggleWhenPressed);
 	InitializeButton(new JoystickButton(gameMechController, kRightBumper), new MoveGrabberArms(Backward), &Button::ToggleWhenPressed);
 	InitializeButton(new JoystickButton(gameMechController, kLeftBumper), new MoveGrabberArms(Forward), &Button::ToggleWhenPressed);
-	InitializeButton(new JoystickButton(gameMechController, kBackButton), new OverrideSensors(), &Button::WhenPressed);
+	InitializeButton(new JoystickButton(gameMechController, kBackButton), new OverrideSensors(), &Button::ToggleWhenPressed);
 	
 }
 

@@ -28,6 +28,8 @@ private:
 		autonomousCommand = new Autonomous();
 		std::cout<<"Init LiveWindow reference\n";
 		lw = LiveWindow::GetInstance();
+		Compressor * c = new Compressor(kPressureSwitchChannel, kCompressorRelayChannel);
+		c->Start();
 		std::cout<<"End of RobotInit"<<std::endl;
 	}
 	

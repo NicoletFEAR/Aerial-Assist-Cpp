@@ -1,12 +1,14 @@
 #pragma once
 #include "WPILib.h"
-#include "SingleActionCommandBase.h"
+#include "../CommandBase.h"
 
-class OverrideSensors : public SingleActionCommandBase
+class OverrideSensors : public CommandBase
 {
 public:
 	OverrideSensors();
 	void Initialize();
-protected:
-	void DoAction();
+	void Execute();
+	void End();
+	void Interrupted();
+	bool IsFinished();
 };

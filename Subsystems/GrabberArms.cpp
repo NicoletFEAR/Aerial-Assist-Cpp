@@ -20,7 +20,7 @@ void GrabberArms::MoveArms(Direction direction)
 	switch(direction)
 	{
 	case Forward:
-		controller->Set(.85);
+		controller->Set(1);
 		break;
 	case Backward:
 		controller->Set(-.85);

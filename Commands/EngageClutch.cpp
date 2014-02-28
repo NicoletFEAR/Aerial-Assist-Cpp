@@ -1,4 +1,5 @@
 #include "EngageClutch.h"
+#include "../Potentiometers.h"
 
 EngageClutch::EngageClutch()
 	:CommandBase("EngageClutch")
@@ -9,13 +10,13 @@ EngageClutch::EngageClutch()
 
 void EngageClutch::Initialize()
 {
-	
+	originalPotReading = LauncherPotentiometer().Get();
 }
 
 
 void EngageClutch::Execute()
 {
-	launcher->RunMotor(.25);
+	launcher->RunMotor(.5);
 	launcher->EngageClutch();
 }
 
@@ -31,5 +32,5 @@ void EngageClutch::Interrupted()
 
 bool EngageClutch::IsFinished()
 {
-	return IsTimedOut();
+	return originalPotReading != LauncherPotentiometer().Get() || IsTimedOut();
 }

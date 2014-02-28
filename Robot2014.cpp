@@ -5,11 +5,9 @@
 #include "CommandBase.h"
 #include "Commands/MoveGrabberArms.h"
 #include "Commands/MoveGrabberWheels.h"
+#include "Potentiometers.h"
 #include <iostream>
 
-#include "Commands/LoadLauncher.h"
-#include "Commands/FireLauncher.h"
-#include "Commands/EngageClutch.h"
 #include "Robotmap.h"
 class Robot2014 : public IterativeRobot {
 private:
@@ -49,11 +47,32 @@ private:
 	}
 	
 	virtual void TeleopPeriodic() {
+		SmartDashboard::PutNumber("Grabber Pot Value", GrabberPotentiometer().Get());
+		SmartDashboard::PutNumber("Launcher Pot Value", LauncherPotentiometer().Get());
 		Scheduler::GetInstance()->Run();
 	}
 	
 	virtual void TestPeriodic() {
 		lw->Run();
+	}
+	
+	virtual void DisabledInit(){
+		std::cout<<"Start Disabled";
+		static bool grabberInitialized = false;
+		double samplesTotal;
+		double averageSample;
+		const int numSamples = 10;
+		for(int i = 0; i < numSamples; ++i)
+		{
+			samplesTotal+= GrabberPotentiometer().Get();
+		}
+		averageSample = samplesTotal / numSamples;
+		const double angleRange = 75;
+		const double registeringOffset = 15;
+		MoveGrabberArms::armUpAngle = averageSample + registeringOffset;
+		MoveGrabberArms::armDownAngle = (averageSample + angleRange) - registeringOffset;
+		grabberInitialized = true;
+		std::cout<<"Disabled Initialized\nArmUpAngle:"<<MoveGrabberArms::armUpAngle;
 	}
 };
 

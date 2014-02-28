@@ -12,6 +12,9 @@ private:
 	DigitalInput armUpLimitSwitch;
 	DigitalInput armDownLimitSwitch;
 public:
+	static double armUpAngle;
+	static double armDownAngle;
+	//Forward = Up, Backward = Down
 	MoveGrabberArms(Direction direction);
 	void Initialize();
 	void Execute();

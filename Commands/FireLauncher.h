@@ -5,6 +5,8 @@
 
 class FireLauncher : public CommandBase
 {
+private:
+	double lastPotReading;
 public:
 	FireLauncher();
 	void Initialize();

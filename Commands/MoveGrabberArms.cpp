@@ -1,6 +1,10 @@
 #include "MoveGrabberArms.h"
 #include "../Robotmap.h"
 #include "../InternalButtons.h"
+#include "../Potentiometers.h"
+
+double MoveGrabberArms::armUpAngle;
+double MoveGrabberArms::armDownAngle;
 
 MoveGrabberArms::MoveGrabberArms(Direction direction)
 	:CommandBase("MoveGrabberArms"),
@@ -32,9 +36,9 @@ bool MoveGrabberArms::IsFinished() {
 	switch(direction)
 	{
 	case Forward:
-		return armUpLimitSwitch.Get();
+		return GrabberPotentiometer().Get() < armUpAngle;
 	case Backward:
-		return armDownLimitSwitch.Get();
+		return GrabberPotentiometer().Get() > armDownAngle;
 	default:
 		return true;
 	}

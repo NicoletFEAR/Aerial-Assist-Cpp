@@ -14,7 +14,7 @@ OI::OI()
 	InitializeButton(new JoystickButton(gameMechController, kBButton), new MoveGrabberWheels(Backward), &Button::ToggleWhenPressed);
 	InitializeButton(new JoystickButton(gameMechController, kRightBumper), new MoveGrabberArms(Backward), &Button::WhenPressed);
 	InitializeButton(new JoystickButton(gameMechController, kLeftBumper), new MoveGrabberArms(Forward), &Button::WhenPressed);
-	SmartDashboard::PutData(new RunCompressor());
+	
 }
 
 GenericHID* OI::DriveController()

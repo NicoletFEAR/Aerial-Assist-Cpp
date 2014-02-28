@@ -21,7 +21,6 @@ private:
 		std::cout<<"Init AutonomousDrive\n";
 		autonomousCommand = new AutonomousDrive();
 		std::cout<<"Init LiveWindow reference\n";
-		autonomousCommand = new Autonomous();
 		lw = LiveWindow::GetInstance();
 		std::cout<<"End of RobotInit"<<std::endl;
 	}
@@ -53,6 +52,25 @@ private:
 	
 	virtual void TestPeriodic() {
 		lw->Run();
+	}
+	
+	virtual void DisabledInit(){
+		std::cout<<"Start Disabled";
+		static bool grabberInitialized = false;
+		double samplesTotal;
+		double averageSample;
+		const int numSamples = 10;
+		for(int i = 0; i < numSamples; ++i)
+		{
+			samplesTotal+= GrabberPotentiometer().Get();
+		}
+		averageSample = samplesTotal / numSamples;
+		const double angleRange = 75;
+		const double registeringOffset = 15;
+		MoveGrabberArms::armUpAngle = averageSample;
+		MoveGrabberArms::armDownAngle = (averageSample - angleRange) + registeringOffset;
+		grabberInitialized = true;
+		std::cout<<"Disabled Initialized\nArmUpAngle:"<<averageSample;
 	}
 };
 

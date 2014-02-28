@@ -2,6 +2,10 @@
 #include "../Robotmap.h"
 #include "../Potentiometers.h"
 
+double MoveGrabberArms::armUpAngle;
+double MoveGrabberArms::armDownAngle;
+
+
 MoveGrabberArms::MoveGrabberArms(Direction direction)
 	:CommandBase("MoveGrabberArms"),
 	direction(direction),

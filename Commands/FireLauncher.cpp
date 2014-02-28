@@ -1,4 +1,5 @@
 #include "FireLauncher.h"
+#include "../Potentiometers.h"
 
 FireLauncher::FireLauncher()
 	:CommandBase("FireLauncher")
@@ -9,7 +10,7 @@ FireLauncher::FireLauncher()
 
 void FireLauncher::Initialize()
 {
-	
+	lastPotReading = LauncherPotentiometer().Get();
 }
 
 void FireLauncher::Execute()
@@ -29,5 +30,14 @@ void FireLauncher::Interrupted()
 
 bool FireLauncher::IsFinished()
 {
-	return IsTimedOut();
+	double newReading = LauncherPotentiometer().Get();
+	if(lastPotReading == newReading)
+	{
+		return true;
+	}
+	else
+	{
+		lastPotReading = newReading;
+		return IsTimedOut();
+	}
 }

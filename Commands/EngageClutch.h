@@ -4,6 +4,8 @@
 
 class EngageClutch : public CommandBase
 {
+private:
+	double originalPotReading;
 public:
 	EngageClutch();
 	void Initialize();

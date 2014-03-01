@@ -11,7 +11,7 @@ MoveGrabberArms::MoveGrabberArms(Direction direction)
 	Requires(grabberArms);
 	if(direction == Backward) //Dropping arm down
 	{
-		SetTimeout(.1);
+		SetTimeout(.3);
 	}
 }
 
@@ -28,13 +28,12 @@ void MoveGrabberArms::Execute() {
 // Make this return true when this Command no longer needs to run execute()
 bool MoveGrabberArms::IsFinished() {
 	if(SensorOverride().Get()) return false;
-	if(direction == Backward) return IsTimedOut();
 	switch(direction)
 	{
 	case Forward:
 		return armUpLimitSwitch.Get();
 	case Backward:
-		return armDownLimitSwitch.Get();
+		return IsTimedOut() || armDownLimitSwitch.Get();
 	default:
 		return true;
 	}

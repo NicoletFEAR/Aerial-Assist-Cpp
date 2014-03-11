@@ -13,10 +13,10 @@ OI::OI()
 {
 	InitializeButton(new JoystickButton(gameMechController, kAButton), new FireLauncher(), &Button::ToggleWhenPressed);
 	InitializeButton(new JoystickButton(gameMechController, kXButton), new ReloadLauncher(), &Button::ToggleWhenPressed);
-	InitializeButton(new JoystickButton(gameMechController, kYButton), new MoveGrabberWheels(Forward), &Button::ToggleWhenPressed);
-	InitializeButton(new JoystickButton(gameMechController, kBButton), new MoveGrabberWheels(Backward), &Button::ToggleWhenPressed);
-	InitializeButton(new JoystickButton(gameMechController, kRightBumper), new MoveGrabberArms(Backward), &Button::ToggleWhenPressed);
-	InitializeButton(new JoystickButton(gameMechController, kLeftBumper), new MoveGrabberArms(Forward), &Button::ToggleWhenPressed);
+	InitializeButton(new JoystickButton(gameMechController, kBButton), new MoveGrabberWheels(Forward), &Button::ToggleWhenPressed);
+	InitializeButton(new JoystickButton(gameMechController, kYButton), new MoveGrabberWheels(Backward), &Button::ToggleWhenPressed);
+	InitializeButton(new JoystickButton(gameMechController, kLeftBumper), new MoveGrabberArms(Backward), &Button::ToggleWhenPressed);
+	InitializeButton(new JoystickButton(gameMechController, kRightBumper), new MoveGrabberArms(Forward), &Button::ToggleWhenPressed);
 	InitializeButton(new JoystickButton(gameMechController, kBackButton), new OverrideSensors(), &Button::ToggleWhenPressed);
 	
 }

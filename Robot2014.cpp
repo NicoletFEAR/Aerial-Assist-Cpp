@@ -69,8 +69,8 @@ private:
 		averageSample = samplesTotal / numSamples;
 		const double angleRange = 75;
 		const double registeringOffset = 15;
-		MoveGrabberArms::armUpAngle = averageSample + registeringOffset;
-		MoveGrabberArms::armDownAngle = (averageSample + angleRange) - registeringOffset;
+		MoveGrabberArms::armUpAngle = averageSample - registeringOffset;
+		MoveGrabberArms::armDownAngle = (averageSample - angleRange) + registeringOffset;
 		grabberInitialized = true;
 		std::cout<<"Disabled Initialized\nArmUpAngle:"<<MoveGrabberArms::armUpAngle;
 	}

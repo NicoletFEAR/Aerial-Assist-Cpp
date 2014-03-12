@@ -25,8 +25,8 @@ const int kEngageSolenoid = 2;
 const int kPressureSwitchChannel = 14;
 const int kCompressorRelayChannel = 1;
 
-const int kGrabberWheelsMotor = 7;
-const int kGrabberArmsMotor = 6;
+const int kGrabberWheelsMotor = 6;
+const int kGrabberArmsMotor = 7;
 const int kGrabberDownSwitch = 11;
 const int kGrabberUpSwitch = 12;
 

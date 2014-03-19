@@ -20,10 +20,10 @@ void GrabberArms::MoveArms(Direction direction)
 	switch(direction)
 	{
 	case Forward:
-		controller->Set(1);
+		controller->Set(SmartDashboard::GetNumber("ArmDownSpeed"));
 		break;
 	case Backward:
-		controller->Set(-.85);
+		controller->Set(SmartDashboard::GetNumber("ArmUpSpeed"));
 		break;
 	}
 }

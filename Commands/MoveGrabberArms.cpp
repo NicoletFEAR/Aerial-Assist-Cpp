@@ -31,9 +31,9 @@ bool MoveGrabberArms::IsFinished() {
 	switch(direction)
 	{
 	case Forward:
-		return GrabberPotentiometer().Get() < armUpAngle;
+		return GrabberPotentiometer().Get() < armDownAngle;
 	case Backward:
-		return GrabberPotentiometer().Get() > armDownAngle;
+		return GrabberPotentiometer().Get() > armUpAngle;
 	default:
 		return true;
 	}

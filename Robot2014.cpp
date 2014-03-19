@@ -67,12 +67,14 @@ private:
 			samplesTotal+= GrabberPotentiometer().Get();
 		}
 		averageSample = samplesTotal / numSamples;
-		const double angleRange = 75;
-		const double registeringOffset = 15;
-		MoveGrabberArms::armUpAngle = averageSample - registeringOffset;
-		MoveGrabberArms::armDownAngle = (averageSample - angleRange) + registeringOffset;
+		const double angleRange = 65;
+		const double upRegisteringOffset = 5;
+		const double downRegisteringOffset = 20;
+		MoveGrabberArms::armUpAngle = averageSample - upRegisteringOffset;
+		MoveGrabberArms::armDownAngle = (averageSample - angleRange) + downRegisteringOffset;
 		grabberInitialized = true;
-		std::cout<<"Disabled Initialized\nArmUpAngle:"<<MoveGrabberArms::armUpAngle;
+		std::cout<<"Disabled Initialized\nArmUpAngle:"<<MoveGrabberArms::armUpAngle<<"\n";
+		std::cout<<"ArmDownAngle:"<<MoveGrabberArms::armDownAngle<<"\n";
 	}
 };
 

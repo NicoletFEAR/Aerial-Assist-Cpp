@@ -18,7 +18,8 @@ OI::OI()
 	InitializeButton(new JoystickButton(gameMechController, kLeftBumper), new MoveGrabberArms(Backward), &Button::ToggleWhenPressed);
 	InitializeButton(new JoystickButton(gameMechController, kRightBumper), new MoveGrabberArms(Forward), &Button::ToggleWhenPressed);
 	InitializeButton(new JoystickButton(gameMechController, kBackButton), new OverrideSensors(), &Button::ToggleWhenPressed);
-	
+	SmartDashboard::PutNumber("ArmDownSpeed", .1);
+	SmartDashboard::PutNumber("ArmUpSpeed", -.1);
 }
 
 GenericHID* OI::DriveController()
